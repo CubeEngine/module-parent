@@ -24,6 +24,30 @@
         <developerConnection>scm:git:git@github.com:CubeEngine/module-parent.git</developerConnection>
     </scm>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.cubeengine</groupId>
+            <artifactId>module-processor</artifactId>
+            <version>1.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.spongepowered</groupId>
+                <artifactId>spongeapi</artifactId>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.cubeengine</groupId>
+                <artifactId>libcube</artifactId>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <repositories>
         <repository>
             <id>sponge-maven-repo</id>
