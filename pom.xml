@@ -72,4 +72,40 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <profiles>
+        <profile>
+            <id>ore-release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.cubeengine.maven.plugins</groupId>
+                        <artifactId>ore-deploy-maven-plugin</artifactId>
+                        <version>1.0.0-SNAPSHOT</version>
+                        <configuration>
+                            <pluginId>cubeengine-${project.artifactId}</pluginId>
+                            <version>${project.version}</version>
+                            <releaseChannel>release</releaseChannel>
+                            <snapshotChannel>dev</snapshotChannel>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 </project>
