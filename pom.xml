@@ -102,6 +102,15 @@
                             <releaseChannel>release</releaseChannel>
                             <snapshotChannel>dev</snapshotChannel>
                         </configuration>
+                        <executions>
+                            <execution>
+                                <id>ore-deploy</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>deploy</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
