@@ -18,6 +18,10 @@
     <url>http://cubeengine.org</url>
     <inceptionYear>2012</inceptionYear>
 
+    <properties>
+        <sourceVersion>${githead.branch}-${githead.commit}</sourceVersion>
+    </properties>
+
     <scm>
         <url>scm:git:https://github.com/CubeEngine/module-parent</url>
         <connection>scm:git:https://github.com/CubeEngine/module-parent.git</connection>
@@ -28,7 +32,7 @@
         <dependency>
             <groupId>org.cubeengine</groupId>
             <artifactId>plugin-gen</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.2-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -72,6 +76,89 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerArgs>
+                        <arg>-Acubeengine.module.version=${project.version}</arg>
+                        <arg>-Acubeengine.module.sourceversion=${sourceVersion}</arg>
+                        <arg>-Acubeengine.module.description=${project.description}</arg>
+                        <arg>-Acubeengine.module.id=${project.artifactId}</arg>
+                        <arg>-Acubeengine.module.name=${project.name}</arg>
+                        <arg>-Acubeengine.module.team=${project.organization.name}</arg>
+                        <arg>-Acubeengine.module.url=${project.organization.url}</arg>
+                        <arg>-Acubeengine.module.libcube.version=${org.cubeengine:libcube:jar.version}</arg>
+                        <arg>-Acubeengine.module.sponge.version=${org.spongepowered:spongeapi:jar.version}</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.cubeengine.maven.plugins</groupId>
+                <artifactId>githead-maven-plugin</artifactId>
+                <version>1.1.0-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <id>head</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>head</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.cubeengine.maven.plugins</groupId>
+                <artifactId>pericopist-maven-plugin</artifactId>
+                <version>2.2.1</version>
+                <configuration>
+                    <configurations>
+                        <configuration>${basedir}/pericopist.xml</configuration>
+                        <configuration>${basedir}/../pericopist.xml</configuration>
+                        <configuration>${rawParentRepo}/pericopist.xml</configuration>
+                    </configurations>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.reformanda.semper</groupId>
+                <artifactId>dependencyversion-maven-plugin</artifactId>
+                <version>1.0.1</version>
+                <configuration>
+                    <propertySets>
+                        <propertySet>
+                            <transitive>false</transitive>
+                        </propertySet>
+                    </propertySets>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>install</id>
+                        <goals>
+                            <goal>set-version</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addExtensions>true</addExtensions>
+                        </manifest>
+                        <manifestEntries>
+                            <sourceVersion>${sourceVersion}</sourceVersion>
+                            <version>${project.version}</version>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <profiles>
         <profile>
