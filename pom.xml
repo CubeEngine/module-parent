@@ -182,7 +182,7 @@
                     <plugin>
                         <groupId>org.cubeengine.maven.plugins</groupId>
                         <artifactId>ore-deploy-maven-plugin</artifactId>
-                        <version>1.0.0</version>
+                        <version>1.0.1</version>
                         <configuration>
                             <pluginId>cubeengine-${project.artifactId}</pluginId>
                             <version>${project.version}</version>
