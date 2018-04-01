@@ -21,6 +21,7 @@
     <properties>
         <sourceVersion>${githead.branch}-${githead.commit}</sourceVersion>
         <prometheusVersion>0.3.0</prometheusVersion>
+        <shadedClassifier>full</shadedClassifier>
     </properties>
 
     <scm>
@@ -86,7 +87,10 @@
                     <artifactId>maven-shade-plugin</artifactId>
                     <version>3.1.0</version>
                     <configuration>
-                        <shadedArtifactAttached>false</shadedArtifactAttached>
+                        <shadedArtifactAttached>true</shadedArtifactAttached>
+                        <finalName>${project.name}</finalName>
+                        <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
+                        <shadedClassifierName>${shadedClassifier}</shadedClassifierName>
                         <filters>
                             <filter>
                                 <artifact>*:*</artifact>
@@ -132,6 +136,15 @@
                             </relocation>
                         </relocations>
                     </configuration>
+                    <executions>
+                        <execution>
+                            <id>shade-and-relocate</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -240,12 +253,13 @@
                     <plugin>
                         <groupId>org.cubeengine.maven.plugins</groupId>
                         <artifactId>ore-deploy-maven-plugin</artifactId>
-                        <version>1.0.1</version>
+                        <version>1.0.2-SNAPSHOT</version>
                         <configuration>
                             <pluginId>cubeengine-${project.artifactId}</pluginId>
                             <version>${project.version}</version>
                             <releaseChannel>release</releaseChannel>
                             <snapshotChannel>dev</snapshotChannel>
+                            <classifier>${shadedClassifier}</classifier>
                         </configuration>
                         <executions>
                             <execution>
