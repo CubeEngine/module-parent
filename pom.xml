@@ -20,6 +20,7 @@
 
     <properties>
         <sourceVersion>${githead.branch}-${githead.commit}</sourceVersion>
+        <prometheusVersion>0.3.0</prometheusVersion>
     </properties>
 
     <scm>
