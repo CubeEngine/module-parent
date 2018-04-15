@@ -88,7 +88,6 @@
                     <version>3.1.0</version>
                     <configuration>
                         <shadedArtifactAttached>true</shadedArtifactAttached>
-                        <finalName>${project.name}</finalName>
                         <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
                         <shadedClassifierName>${shadedClassifier}</shadedClassifierName>
                         <filters>
