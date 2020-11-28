@@ -262,25 +262,12 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
                         <groupId>org.cubeengine.maven.plugins</groupId>
                         <artifactId>ore-deploy-maven-plugin</artifactId>
-                        <version>1.1.1</version>
+                        <version>1.2.0-SNAPSHOT</version>
                         <configuration>
-                            <pluginId>cubeengine-${project.artifactId}</pluginId>
+                            <projectOwner>Faithcaio</projectOwner>
+                            <projectSlug>cubeengine---${project.artifactId}</projectSlug>
                             <version>${project.version}</version>
                             <releaseChannel>release</releaseChannel>
                             <snapshotChannel>dev</snapshotChannel>
