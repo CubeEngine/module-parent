@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.cubeengine</groupId>
         <artifactId>parent</artifactId>
-        <version>6</version>
+        <version>7-SNAPSHOT</version>
     </parent>
 
     <groupId>org.cubeengine.module</groupId>
@@ -36,7 +36,7 @@
         <dependency>
             <groupId>org.cubeengine</groupId>
             <artifactId>plugin-gen</artifactId>
-            <version>1.0.4-SNAPSHOT</version>
+            <version>1.0.5-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -71,33 +71,11 @@
             </snapshots>
         </repository>
         <repository>
-            <id>sponge-maven-repo-new</id>
-            <name>Sponge maven repo new</name>
-            <url>https://repo-new.spongepowered.org/repository/maven-public</url>
+            <id>spongepowered-repo-new</id>
+            <name>New Sponge Public Repository</name>
+            <url>https://repo-new.spongepowered.org/repository/maven-public/</url>
             <releases>
                 <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>sponge-maven-repo</id>
-            <name>Sponge maven repo</name>
-            <url>https://repo.spongepowered.org/maven</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>sonatype-snapshots</id>
-            <name>Sonatype Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
             </releases>
             <snapshots>
                 <enabled>true</enabled>
