@@ -244,11 +244,10 @@
                         <artifactId>ore-deploy-maven-plugin</artifactId>
                         <version>1.2.0-SNAPSHOT</version>
                         <configuration>
-                            <projectOwner>Faithcaio</projectOwner>
-                            <projectSlug>cubeengine---${project.artifactId}</projectSlug>
-                            <version>${project.version}</version>
-                            <releaseChannel>release</releaseChannel>
-                            <snapshotChannel>dev</snapshotChannel>
+                            <pluginId>cubeengine-${project.artifactId}</pluginId>
+                            <oreUrl>https://staging-ore.spongeproject.net</oreUrl>
+                            <releaseChannel>Release</releaseChannel>
+                            <snapshotChannel>Dev</snapshotChannel>
                             <classifier>${shadedClassifier}</classifier>
                         </configuration>
                         <executions>
