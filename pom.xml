@@ -245,7 +245,7 @@
                         <version>1.2.0-SNAPSHOT</version>
                         <configuration>
                             <pluginId>cubeengine-${project.artifactId}</pluginId>
-                            <oreUrl>https://staging-ore.spongeproject.net</oreUrl>
+<!--                            <oreUrl>https://staging-ore.spongeproject.net</oreUrl>-->
                             <releaseChannel>Release</releaseChannel>
                             <snapshotChannel>Dev</snapshotChannel>
                             <classifier>${shadedClassifier}</classifier>
