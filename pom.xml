@@ -23,7 +23,6 @@
         <prometheusVersion>0.3.0</prometheusVersion>
         <shadedClassifier>full</shadedClassifier>
         <spongeVersion>9.0.0-SNAPSHOT</spongeVersion>
-        <libCubeVersion>2.0.0-SNAPSHOT</libCubeVersion>
     </properties>
 
     <scm>
@@ -46,17 +45,6 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.cubeengine</groupId>
-                <artifactId>libcube</artifactId>
-                <version>${libCubeVersion}</version>
-                <scope>provided</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <repositories>
         <repository>
